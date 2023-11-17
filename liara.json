@@ -1,4 +1,10 @@
 {
-    "app" : "inv",
-    "platform" : "django"
+    "app": "inv",
+    "platform": "django",
+    "disk": [
+        {
+            "name": "disk",
+            "mountTo": "db"
+        }
+    ]
 }
