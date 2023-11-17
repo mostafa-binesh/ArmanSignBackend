@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 14:18+0330\n"
+"POT-Creation-Date: 2023-11-17 14:25+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgstr "مشتری ها"
 msgid "Persian"
 msgstr "فارسی"
 
-#: .\orders\models.py:9
+#: .\orders\models.py:9 .\parts\models.py:10
 msgid "Parts"
 msgstr "قطعات"
 
@@ -54,7 +54,7 @@ msgstr "قطعات"
 msgid "Count"
 msgstr "تعداد"
 
-#: .\orders\models.py:12
+#: .\orders\models.py:12 .\parts\models.py:6
 msgid "Created At"
 msgstr "شروع در"
 
@@ -69,6 +69,14 @@ msgstr "سفارش"
 #: .\orders\models.py:17
 msgid "Orders"
 msgstr "سفارشات"
+
+#: .\parts\models.py:5 .\stages\models.py:6
+msgid "Title"
+msgstr "عنوان"
+
+#: .\parts\models.py:9
+msgid "Part"
+msgstr "قطعه"
 
 #: .\reports\models.py:8 .\stages\models.py:9
 msgid "Stage"
@@ -105,10 +113,6 @@ msgstr "گزارش"
 #: .\reports\models.py:18
 msgid "Reports"
 msgstr "گزارشات"
-
-#: .\stages\models.py:6
-msgid "Title"
-msgstr "عنوان"
 
 #: .\stages\models.py:10
 msgid "Stages"
