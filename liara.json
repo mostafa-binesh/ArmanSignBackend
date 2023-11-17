@@ -1,9 +1,9 @@
 {
     "app": "inv",
     "platform": "django",
-    "disk": [
+    "disks": [
         {
-            "name": "disk",
+            "name": "db-disk",
             "mountTo": "db"
         }
     ]
