@@ -8,3 +8,6 @@ class Stage(models.Model):
     class Meta:
         verbose_name = _("Stage")
         verbose_name_plural = _("Stages")
+        
+    def __str__(self) -> str:
+        return self.title
