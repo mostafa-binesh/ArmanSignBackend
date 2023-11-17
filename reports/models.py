@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Report(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("Title"), default="")
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("User"), default=1) 
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Creator"), default=1) 
     user = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name=_("User"))
     stage = models.ForeignKey(Stage, on_delete=models.CASCADE, verbose_name=_("Stage"))
     started_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Started At"))

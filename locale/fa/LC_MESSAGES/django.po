@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 14:25+0330\n"
+"POT-Creation-Date: 2023-11-17 16:00+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#: .\clients\models.py:6 .\reports\models.py:7
-msgid "User"
-msgstr "کاربر"
 
 #: .\clients\models.py:7
 msgid "Name"
@@ -34,7 +30,7 @@ msgstr "شماره موبایل"
 msgid "Email"
 msgstr "ایمیل"
 
-#: .\clients\models.py:12 .\orders\models.py:10
+#: .\clients\models.py:12 .\orders\models.py:11
 msgid "Client"
 msgstr "مشتری"
 
@@ -46,31 +42,31 @@ msgstr "مشتری ها"
 msgid "Persian"
 msgstr "فارسی"
 
-#: .\orders\models.py:9 .\parts\models.py:10
+#: .\orders\models.py:10 .\parts\models.py:10
 msgid "Parts"
 msgstr "قطعات"
 
-#: .\orders\models.py:11
+#: .\orders\models.py:12
 msgid "Count"
 msgstr "تعداد"
 
-#: .\orders\models.py:12 .\parts\models.py:6
+#: .\orders\models.py:13 .\parts\models.py:6
 msgid "Created At"
 msgstr "شروع در"
 
-#: .\orders\models.py:13
+#: .\orders\models.py:14
 msgid "Order Number"
 msgstr "شماره سفارش"
 
-#: .\orders\models.py:16
+#: .\orders\models.py:17
 msgid "Order"
 msgstr "سفارش"
 
-#: .\orders\models.py:17
+#: .\orders\models.py:18
 msgid "Orders"
 msgstr "سفارشات"
 
-#: .\parts\models.py:5 .\stages\models.py:6
+#: .\parts\models.py:5 .\reports\models.py:8 .\stages\models.py:6
 msgid "Title"
 msgstr "عنوان"
 
@@ -78,39 +74,47 @@ msgstr "عنوان"
 msgid "Part"
 msgstr "قطعه"
 
-#: .\reports\models.py:8 .\stages\models.py:9
+#: .\reports\models.py:9
+msgid "Creator"
+msgstr "سازنده"
+
+#: .\reports\models.py:10
+msgid "User"
+msgstr "کاربر"
+
+#: .\reports\models.py:11 .\stages\models.py:9
 msgid "Stage"
 msgstr "مرحله"
 
-#: .\reports\models.py:9
+#: .\reports\models.py:12
 msgid "Started At"
 msgstr "شروع در"
 
-#: .\reports\models.py:10
+#: .\reports\models.py:13
 msgid "Ended At"
 msgstr "پایان در"
 
-#: .\reports\models.py:11
+#: .\reports\models.py:14
 msgid "Standard Time"
 msgstr "زمان استاندارد"
 
-#: .\reports\models.py:12
+#: .\reports\models.py:15
 msgid "Intact Parts Count"
 msgstr "تعداد قطعات درست"
 
-#: .\reports\models.py:13
+#: .\reports\models.py:16
 msgid "Defective Parts Count"
 msgstr "تعداد قطعات خراب"
 
-#: .\reports\models.py:14
+#: .\reports\models.py:17
 msgid "Stop Time"
 msgstr "زمان پایان"
 
-#: .\reports\models.py:17
+#: .\reports\models.py:20
 msgid "Report"
 msgstr "گزارش"
 
-#: .\reports\models.py:18
+#: .\reports\models.py:21
 msgid "Reports"
 msgstr "گزارشات"
 
