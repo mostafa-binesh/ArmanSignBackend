@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-17 14:18+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\clients\models.py:6 .\reports\models.py:7
+msgid "User"
+msgstr "کاربر"
+
+#: .\clients\models.py:7
+msgid "Name"
+msgstr "نام"
+
+#: .\clients\models.py:8
+msgid "Phone Number"
+msgstr "شماره موبایل"
+
+#: .\clients\models.py:9
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\clients\models.py:12 .\orders\models.py:10
+msgid "Client"
+msgstr "مشتری"
+
+#: .\clients\models.py:13
+msgid "Clients"
+msgstr "مشتری ها"
+
+#: .\inventory\settings.py:124
+msgid "Persian"
+msgstr "فارسی"
+
+#: .\orders\models.py:9
+msgid "Parts"
+msgstr "قطعات"
+
+#: .\orders\models.py:11
+msgid "Count"
+msgstr "تعداد"
+
+#: .\orders\models.py:12
+msgid "Created At"
+msgstr "شروع در"
+
+#: .\orders\models.py:13
+msgid "Order Number"
+msgstr "شماره سفارش"
+
+#: .\orders\models.py:16
+msgid "Order"
+msgstr "سفارش"
+
+#: .\orders\models.py:17
+msgid "Orders"
+msgstr "سفارشات"
+
+#: .\reports\models.py:8 .\stages\models.py:9
+msgid "Stage"
+msgstr "مرحله"
+
+#: .\reports\models.py:9
+msgid "Started At"
+msgstr "شروع در"
+
+#: .\reports\models.py:10
+msgid "Ended At"
+msgstr "پایان در"
+
+#: .\reports\models.py:11
+msgid "Standard Time"
+msgstr "زمان استاندارد"
+
+#: .\reports\models.py:12
+msgid "Intact Parts Count"
+msgstr "تعداد قطعات درست"
+
+#: .\reports\models.py:13
+msgid "Defective Parts Count"
+msgstr "تعداد قطعات خراب"
+
+#: .\reports\models.py:14
+msgid "Stop Time"
+msgstr "زمان پایان"
+
+#: .\reports\models.py:17
+msgid "Report"
+msgstr "گزارش"
+
+#: .\reports\models.py:18
+msgid "Reports"
+msgstr "گزارشات"
+
+#: .\stages\models.py:6
+msgid "Title"
+msgstr "عنوان"
+
+#: .\stages\models.py:10
+msgid "Stages"
+msgstr "مرحله"
