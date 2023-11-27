@@ -15,6 +15,19 @@ class Report(models.Model):
     intact_parts_count = models.IntegerField(verbose_name=_("Intact Parts Count"))
     defective_parts_count = models.IntegerField(verbose_name=_("Defective Parts Count"))
     stop_time = models.IntegerField(verbose_name=_("Stop Time"))
+    # i didn't like this style of stop controller code and time, but this project doesn't need more than this
+    # and more modular and flexible design is more time consuming
+    stop_controller_1_code = models.CharField(max_length=10, blank=True, null=True)
+    stop_controller_1_time = models.IntegerField(blank=True, null=True)
+
+    stop_controller_2_code = models.CharField(max_length=10, blank=True, null=True)
+    stop_controller_2_time = models.IntegerField(blank=True, null=True)
+
+    stop_controller_3_code = models.CharField(max_length=10, blank=True, null=True)
+    stop_controller_3_time = models.IntegerField(blank=True, null=True)
+
+    stop_controller_4_code = models.CharField(max_length=10, blank=True, null=True)
+    stop_controller_4_time = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = _("Report")
