@@ -6,10 +6,7 @@ from stages.models import Stage
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
-class ReportSerializer(serializers.HyperlinkedModelSerializer):
-    creator = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
-    user = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
-    stage = serializers.PrimaryKeyRelatedField(queryset=Stage.objects.all())
+class ReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Report
         fields = [

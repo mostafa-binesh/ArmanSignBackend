@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'reports',
     'stages',
     'drf_yasg',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
