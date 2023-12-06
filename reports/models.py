@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from orders.models import Order
 from stages.models import Stage
 from clients.models import Client
 from django.utils.translation import gettext_lazy as _
@@ -8,6 +9,7 @@ class Report(models.Model):
     title = models.CharField(max_length=200, verbose_name=_("Title"), default="")
     creator = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Creator"), default=1) 
     user = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name=_("User"))
+    order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'), default=0)
     stage = models.ForeignKey(Stage, on_delete=models.CASCADE, verbose_name=_("Stage"))
     started_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Started At"))
     ended_at = models.DateTimeField(verbose_name=_("Ended At"))

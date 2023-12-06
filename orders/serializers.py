@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import Order
 from clients.models import Client
 
-class OrderSerializer(serializers.HyperlinkedModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     client = serializers.PrimaryKeyRelatedField(queryset=Client.objects.all())
     class Meta:
         model = Order
