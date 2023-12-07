@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'parts',
     'orders',
     'reports',
-    'stages',
+    'stages', # DEPRECATED
+    'machines',
     'drf_yasg',
     'django_filters',
 ]

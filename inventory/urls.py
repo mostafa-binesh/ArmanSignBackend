@@ -23,6 +23,7 @@ from stages.views import StageViewSet
 from orders.views import OrderViewSet
 from reports.views import ReportViewSet
 from stages.views import StageViewSet 
+from machines.views import MachineViewSet 
 from parts import views as partsViews
 from rest_framework.routers import DefaultRouter
 from django.urls import re_path
@@ -47,8 +48,9 @@ router = DefaultRouter()
 router.register(r'parts', partsViews.PartViewSet, basename='part')
 router.register(r'clients', ClientViewSet, basename='client')
 router.register(r'orders', OrderViewSet, basename='client')
-router.register(r'stage', StageViewSet, basename='stage')
+# router.register(r'stage', StageViewSet, basename='stage')
 router.register(r'reports', ReportViewSet, basename='report')
+router.register(r'machines', MachineViewSet, basename='machine')
 
 urlpatterns = [
     path('api/', include(router.urls)),
