@@ -13,6 +13,8 @@ class Order(models.Model):
     started_at = models.DateField(default=timezone.now, verbose_name=_("Started At"))
     ended_at = models.DateField(default=timezone.now, verbose_name=_("Ended At"))
     order_number = models.CharField(max_length=200, verbose_name=_("Order Number"))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:
         verbose_name = _("Order")

@@ -40,6 +40,8 @@ class Report(models.Model):
 
     stop_controller_4_code = models.CharField(max_length=10, blank=True, null=True)
     stop_controller_4_time = models.IntegerField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = _("Report")
