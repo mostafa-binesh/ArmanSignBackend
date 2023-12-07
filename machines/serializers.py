@@ -5,4 +5,4 @@ from django.utils.translation import gettext_lazy as _
 class MachineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Machine
-        fields = ['id', 'title']
+        fields = '__all__'

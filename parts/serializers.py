@@ -6,4 +6,4 @@ from .models import Part
 class PartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Part
-        fields = ['title']
+        fields = '__all__'
