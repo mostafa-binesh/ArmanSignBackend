@@ -5,7 +5,7 @@ from pytz import timezone
 # Create your models here.
 class Client(models.Model):
     # user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("User")) # todo
-    name = models.CharField(max_length=200, verbose_name=_("Name"))
+    title = models.CharField(max_length=200, verbose_name=_("Title"))
     phone_number = models.CharField(max_length=200, verbose_name=_("Phone Number"), null=True)
     email = models.EmailField(max_length=200, null=True, verbose_name=_("Email"))
     created_at = models.DateTimeField(auto_now_add=True)
