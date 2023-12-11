@@ -6,6 +6,7 @@ from orders.serializers import OrderReadSerializer
 from machines.serializers import MachineSerializer
 from clients.serializers import ClientSerializer
 from machines.serializers import MachineSerializer
+from accounts.serializers import OperatorSerializer
 from .models import Report
 from django.utils.translation import gettext_lazy as _
 
@@ -13,6 +14,7 @@ class ReportReadSerializer(serializers.ModelSerializer):
     order = OrderReadSerializer()
     client = ClientSerializer()
     machine = MachineSerializer()
+    operator = OperatorSerializer()
     class Meta:
         model = Report
         fields = '__all__'
