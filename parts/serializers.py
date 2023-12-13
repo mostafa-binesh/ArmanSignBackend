@@ -7,3 +7,4 @@ class PartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Part
         fields = '__all__'
+        read_only_fields = ('created_at', 'updated_at',)
