@@ -15,4 +15,4 @@ class Client(models.Model):
         verbose_name_plural = _("Clients")
     
     def __str__(self) -> str:
-        return self.name
+        return self.title
