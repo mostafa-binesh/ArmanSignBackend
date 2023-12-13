@@ -1,0 +1,4 @@
+create translated messages:
+
+python manage.py makemessages -l fa
+python manage.py compilemessages

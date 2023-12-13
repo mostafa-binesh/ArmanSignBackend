@@ -26,5 +26,20 @@ class Order(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.order_number:
-            self.order_number = str(random.randint(100000000, 999999999))
+            self.order_number = self._generate_order_number()
         super(Order, self).save(*args, **kwargs)
+
+    def _generate_order_number(self) -> str:
+        if not self.order_number:
+            # Get first three digits of client_id
+            client_id_str = '{:03d}'.format(self.client.id)[:3]
+
+            # Get first three digits of part_id
+            part_id_str = '{:03d}'.format(self.part.id)[:3]
+
+            # Calculate the order count for the client and format it as three digits
+            order_count = Order.objects.filter(client=self.client).count()
+            order_count_str = '{:03d}'.format(order_count + 1)  # Add 1 as we're creating a new order
+
+            # Combine all parts to form the order_number
+            return '{}{}{}'.format(client_id_str, part_id_str, order_count_str)
