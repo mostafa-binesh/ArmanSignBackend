@@ -6,7 +6,7 @@ from parts.serializers import PartSerializer
 from clients.serializers import ClientSerializer
 
 class OrderReadSerializer(serializers.ModelSerializer):
-    parts = PartSerializer(many=True)
+    part = PartSerializer()
     client = ClientSerializer()
     class Meta:
         model = Order
@@ -15,3 +15,4 @@ class OrderWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
+        read_only_fields = ('order_number',)
