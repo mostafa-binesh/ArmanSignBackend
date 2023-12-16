@@ -1,5 +1,4 @@
 {
-    "app": "inv",
     "platform": "django",
     "disks": [
         {

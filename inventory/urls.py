@@ -62,6 +62,6 @@ urlpatterns = [
    path('admin/', admin.site.urls),
 
     # jwt token routes
-   path('api/sigin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/sigin/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+   path('api/signin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/signin/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

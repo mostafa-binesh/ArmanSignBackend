@@ -12,7 +12,7 @@ from django.utils.translation import gettext_lazy as _
 
 class ReportReadSerializer(serializers.ModelSerializer):
     order = OrderReadSerializer()
-    client = ClientSerializer()
+    # client = ClientSerializer()
     machine = MachineSerializer()
     operator = OperatorSerializer()
     class Meta:

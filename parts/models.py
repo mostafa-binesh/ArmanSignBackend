@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 class Part(models.Model):
     title = models.CharField(max_length=200,verbose_name=_("Title"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
-    # updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
     class Meta:
