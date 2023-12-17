@@ -42,7 +42,6 @@ class Report(models.Model):
     stop_controller_4_time = models.IntegerField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    test_field = models.PositiveBigIntegerField(null=True)
 
     class Meta:
         verbose_name = _("Report")
