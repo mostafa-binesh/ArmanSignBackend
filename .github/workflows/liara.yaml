@@ -18,3 +18,6 @@ jobs:
         run: |
           npm i -g @liara/cli@5
           liara deploy --app="inv" --api-token="$LIARA_TOKEN" --port="3000" --no-app-logs
+          liara shell --app="inv" --api-token="$LIARA_TOKEN"
+          python manage.py makemigrations
+          exit
