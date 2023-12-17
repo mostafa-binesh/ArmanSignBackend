@@ -10,7 +10,7 @@ class ReportFilter(django_filters.FilterSet):
     started_at = DateFilter(field_name="started_at", lookup_expr=('gt'),)
     ended_at = DateFilter(field_name="ended_at", lookup_expr=('gt'),)
 
-    machine__id = django_filters.CharFilter(lookup_expr='icontains')
+    machine__id = django_filters.CharFilter(field_name="machine", lookup_expr='exact')
     # machine = django_filters.ModelChoiceFilter(queryset=Machine.objects.all())
     status = django_filters.ChoiceFilter(choices=Report.STATUS_CHOICES)
 
