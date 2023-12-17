@@ -20,7 +20,7 @@ class Report(models.Model):
     # client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name=_("Client"))
     order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'))
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
-    started_at = models.DateField(auto_now_add=True, verbose_name=_("Started At"))
+    started_at = models.DateField(verbose_name=_("Started At"))
     ended_at = models.DateField(verbose_name=_("Ended At"), null=True)
     standard_time = models.IntegerField(verbose_name=_("Standard Time"))
     intact_parts_count = models.IntegerField(verbose_name=_("Intact Parts Count"))
