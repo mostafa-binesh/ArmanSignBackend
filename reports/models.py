@@ -22,7 +22,7 @@ class Report(models.Model):
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
     started_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Started At"))
     ended_at = models.DateTimeField(verbose_name=_("Ended At"), null=True)
-    standard_time = models.DateTimeField(verbose_name=_("Standard Time"))
+    standard_time = models.IntegerField(verbose_name=_("Standard Time"))
     intact_parts_count = models.IntegerField(verbose_name=_("Intact Parts Count"))
     defective_parts_count = models.IntegerField(verbose_name=_("Defective Parts Count"))
     # stop_time = models.In tegerField(verbose_name=_("Stop Time"))
