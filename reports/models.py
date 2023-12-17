@@ -12,12 +12,8 @@ class Report(models.Model):
         ('p', 'Pending'),
         ('a', 'Approved'),
         ('r', 'Rejected'),
-    ]
-    
-    
-    # title = models.CharField(max_length=200, verbose_name=_("Title"))
+    ]    
     operator = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Operator")) 
-    # client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name=_("Client"))
     order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'))
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
     started_at = models.DateField(verbose_name=_("Started At"))

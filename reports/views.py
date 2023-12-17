@@ -4,10 +4,10 @@ from .models import Report
 from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import ReportFilter
+from rest_framework import permissions
 class ReportViewSet(viewsets.ModelViewSet):
     queryset = Report.objects.all()
-    # serializer_class = ReportSerializer
-    
+        
     filter_backends = [DjangoFilterBackend]
     filterset_class = ReportFilter
     # permission_classes = [IsAdminUser]
