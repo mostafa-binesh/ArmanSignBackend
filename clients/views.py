@@ -9,4 +9,4 @@ from rest_framework.permissions import IsAuthenticated
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
