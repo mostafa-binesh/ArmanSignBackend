@@ -1,0 +1,49 @@
+To view the data in an SQLite database, you can use the sqlite3 command-line utility. Here’s a step-by-step guide:
+
+Step 1: Locate Your SQLite Database File
+Your SQLite database is a single file typically with a .db, .sqlite, or .sqlite3 extension. If you used the default settings with a Django project, the database file is usually in the same directory as your manage.py file and called db.sqlite3.
+
+Open a terminal (Command Prompt on Windows; Terminal on macOS and Linux) and navigate to your project directory:
+
+cd path/to/your/django/project
+Replace path/to/your/django/project with the actual path to your project where the db.sqlite3 file resides.
+
+Step 2: Open the SQLite Database
+Once you are in the correct directory, you can open the database with the sqlite3 utility:
+
+sqlite3 db.sqlite3
+If you don’t have sqlite3 installed, you might need to install it first. On Ubuntu, you can install it using this command:
+
+sudo apt-get install sqlite3
+For macOS, it typically comes pre-installed, and for Windows, you might need to download it from the SQLite website.
+
+Step 3: Use SQLite Commands to Interact with the Database
+You can now run various SQL queries to view the data. Here are some basic commands:
+
+To see all tables in the database:
+
+.tables
+To view the schema of a particular table (replace table_name with the actual name of the table):
+
+.schema table_name
+To select all data from a table:
+
+SELECT * FROM table_name;
+Remember to replace table_name with the name of the table you wish to query.
+
+Step 4: Viewing Query Results
+When you run the SELECT statement, the data will be displayed in the console. You might want to control how results are displayed:
+
+To enable column names and make it easier to read the data:
+
+.headers on
+To change the output mode to a more readable format:
+
+.mode column
+Step 5: Exit SQLite
+After you have finished viewing the data, you can exit the sqlite3 utility by typing:
+
+.exit
+Or simply use the shortcut Ctrl + D (on macOS and Linux) or Ctrl + Z then Enter (on Windows).
+
+Following these steps, you can interact with your SQLite database directly from the command line. If you’re uncomfortable with the command line or you need a more visual interaction, you may consider using a graphical tool like DB Browser for SQLite, which provides a user-friendly interface for database actions.
