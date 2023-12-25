@@ -1,3 +1,4 @@
+from doctest import Example
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
@@ -20,6 +21,9 @@ class ReportReadSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('created_at', 'updated_at',)
 class ReportWriteSerializer(serializers.ModelSerializer):
+    started_at = serializers.TimeField(format='%H:%M:%S')
+    ended_at = serializers.TimeField(format='%H:%M:%S')
+
     class Meta:
         model = Report
         fields = '__all__'
