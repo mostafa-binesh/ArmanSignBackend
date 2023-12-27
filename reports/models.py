@@ -1,3 +1,5 @@
+import datetime
+from email.policy import default
 from random import choice
 from django.db import models
 from django.contrib.auth.models import User
@@ -6,6 +8,7 @@ from stages.models import Stage
 from clients.models import Client
 from machines.models import Machine
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 # Create your models here.
 class Report(models.Model):
     STATUS_CHOICES = [
@@ -16,6 +19,7 @@ class Report(models.Model):
     operator = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Operator")) 
     order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'))
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
+    date = models.DateField(verbose_name=_("Date"))
     started_at = models.TimeField(verbose_name=_("Started At"))
     ended_at = models.TimeField(verbose_name=_("Ended At"), null=True)
     standard_time = models.IntegerField(verbose_name=_("Standard Time"))
