@@ -19,6 +19,7 @@ from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
 from clients.views import ClientViewSet
+from accounts.views import OperatorFilterListView
 from stages.views import StageViewSet
 from orders.views import OrderViewSet
 from reports.views import ReportViewSet
@@ -60,6 +61,7 @@ urlpatterns = [
    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path('admin/', admin.site.urls),
+    path('api/operators/filterData', OperatorFilterListView.as_view(), name='operator-filter-list'),
 
     # jwt token routes
    path('api/signin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
