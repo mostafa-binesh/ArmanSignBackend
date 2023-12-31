@@ -11,9 +11,13 @@ class OperatorSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class UserSerializer(serializers.ModelSerializer):
+    role = serializers.SerializerMethodField()
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role']
+
+    def get_role(self, obj):
+        return 'operator';
 
 class OperatorFilterSerializer(serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
