@@ -1,8 +1,8 @@
 from pyexpat import model
-from django.contrib.auth.models import User, Group
+from django.conf import settings
+from django.contrib.auth.models import Group
 from rest_framework import serializers
-from django.contrib.auth.models import User
-
+from .models import User
 from parts import models
 
 class OperatorSerializer(serializers.ModelSerializer):
@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
     role = serializers.SerializerMethodField()
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role', 'national_code']
 
     def get_role(self, obj):
         return 'operator';
@@ -23,7 +23,7 @@ class OperatorFilterSerializer(serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
     class Meta:
         model = User
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'national_code']
         
     def get_title(self, obj):
         return f"{obj.first_name} {obj.last_name}"

@@ -1,6 +1,7 @@
 import datetime
 from email.policy import default
 from random import choice
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
 from orders.models import Order
@@ -16,7 +17,7 @@ class Report(models.Model):
         ('a', 'Approved'),
         ('r', 'Rejected'),
     ]    
-    operator = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Operator")) 
+    operator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Operator")) 
     order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'))
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
     date = models.DateField(verbose_name=_("Date"))

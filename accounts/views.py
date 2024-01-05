@@ -1,8 +1,10 @@
+from django.conf import settings
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
+from .models import User
 
 from accounts.serializers import OperatorFilterSerializer, UserSerializer
 # Create your views here.

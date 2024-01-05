@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_extensions',
     'clients',
+    'accounts',
     'parts',
     'orders',
     'reports',
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
 ]
+
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
