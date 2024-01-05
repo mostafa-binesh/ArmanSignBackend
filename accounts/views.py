@@ -11,11 +11,14 @@ from accounts.serializers import OperatorFilterSerializer, UserSerializer
 class OperatorFilterListView(ListAPIView):
     queryset = User.objects.all()
     serializer_class = OperatorFilterSerializer
-class OperatorFilterListView(ListAPIView):
+class UserInfoListView(ListAPIView):
     permission_classes = [IsAuthenticated]
 
-    queryset = User.objects.all()
     serializer_class = UserSerializer
+    def get_queryset(self):
+        # Filter the queryset to only include the authenticated user
+        user = self.request.user
+        return User.objects.filter(id=user.id)
     
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

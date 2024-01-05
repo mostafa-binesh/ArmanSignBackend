@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
 from clients.views import ClientViewSet
-from accounts.views import OperatorFilterListView, UserViewSet
+from accounts.views import OperatorFilterListView, UserInfoListView, UserViewSet
 from stages.views import StageViewSet
 from orders.views import OrderViewSet
 from reports.views import ReportViewSet
@@ -67,5 +67,5 @@ urlpatterns = [
     # jwt token routes
    path('api/signin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/signin/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/user-info/', OperatorFilterListView.as_view(), name='user_info'),
+    path('api/user-info/', UserInfoListView.as_view(), name='user_info'),
 ]
