@@ -1,0 +1,3 @@
+RESET DATABASE:
+python manage.py flush : doesn't remove the tables 
+pytohn manage.py reset_db: reset the entire database with tables
