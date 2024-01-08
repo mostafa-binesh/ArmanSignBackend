@@ -20,6 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
         return 'operator';
     
     def validate_username(self, value):
+        # override default username validations
         return value
 
 class OperatorFilterSerializer(serializers.ModelSerializer):

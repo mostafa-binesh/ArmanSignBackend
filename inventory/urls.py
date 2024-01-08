@@ -22,7 +22,7 @@ from clients.views import ClientViewSet
 from accounts.views import OperatorFilterListView, UserInfoListView, UserViewSet
 from stages.views import StageViewSet
 from orders.views import OrderViewSet
-from reports.views import ReportViewSet
+from reports.views import ReportExportView, ReportViewSet
 from stages.views import StageViewSet 
 from machines.views import MachineViewSet 
 from parts import views as partsViews
@@ -63,6 +63,7 @@ urlpatterns = [
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path('admin/', admin.site.urls),
     path('api/operators/filterData', OperatorFilterListView.as_view(), name='operator-filter-list'),
+    path('api/reports/export', ReportExportView.as_view(), name='export-reports'), 
 
     # jwt token routes
    path('api/signin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

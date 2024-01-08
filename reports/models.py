@@ -49,4 +49,4 @@ class Report(models.Model):
         verbose_name_plural = _("Reports")
         
     def __str__(self) -> str:
-        return self.id
+        return str(self.id)
