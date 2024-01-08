@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
     def get_role(self, obj):
         return 'operator';
     
-    def validate_usernmae(self, value):
+    def validate_username(self, value):
         return value
 
 class OperatorFilterSerializer(serializers.ModelSerializer):
