@@ -14,10 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
     role = serializers.SerializerMethodField()
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role', 'national_code']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'roles', 'national_code']
 
     def get_role(self, obj):
-        return 'operator';
+        groups = obj.groups.all()
+        return [group.name for group in groups]
     
     def validate_username(self, value):
         # override default username validations
