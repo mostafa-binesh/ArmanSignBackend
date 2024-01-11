@@ -11,12 +11,12 @@ class OperatorSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 class UserSerializer(serializers.ModelSerializer):
-    role = serializers.SerializerMethodField()
+    roles = serializers.SerializerMethodField()
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'roles', 'national_code']
 
-    def get_role(self, obj):
+    def get_roles(self, obj):
         groups = obj.groups.all()
         return [group.name for group in groups]
     
