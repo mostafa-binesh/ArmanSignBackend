@@ -22,6 +22,18 @@ class UserSerializer(serializers.ModelSerializer):
     def validate_username(self, value):
         # override default username validations
         return value
+class UserGroupSerializer(serializers.ModelSerializer):
+    role = serializers.SerializerMethodField()
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'role', 'national_code']
+
+    def get_role(self, obj):
+        return 'operator';
+    
+    def validate_username(self, value):
+        # override default username validations
+        return value
 
 class OperatorFilterSerializer(serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
