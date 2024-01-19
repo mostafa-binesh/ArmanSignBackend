@@ -7,8 +7,8 @@ from .models import Report
 
 class ReportFilter(django_filters.FilterSet):
     # todo
-    started_at = DateFilter(field_name="started_at", lookup_expr=('gt'),)
-    ended_at = DateFilter(field_name="ended_at", lookup_expr=('gt'),)
+    started_at = DateFilter(field_name="created_at", lookup_expr=('gt'),)
+    ended_at = DateFilter(field_name="created_at", lookup_expr=('lt'),)
 
     machine__id = django_filters.CharFilter(field_name="machine", lookup_expr='exact', label="machine_id")
     # machine = django_filters.ModelChoiceFilter(queryset=Machine.objects.all())

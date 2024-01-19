@@ -53,7 +53,7 @@ router.register(r'orders', OrderViewSet, basename='client')
 # router.register(r'stage', StageViewSet, basename='stage')
 router.register(r'reports', ReportViewSet, basename='report')
 router.register(r'machines', MachineViewSet, basename='machine')
-router.register(r'users', UserViewSet, basename='machine')
+router.register(r'users', UserViewSet, basename='users')
 
 
 urlpatterns = [
