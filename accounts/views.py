@@ -14,7 +14,7 @@ from rest_framework.response import Response
 from accounts.serializers import OperatorFilterSerializer, UserSerializer
 # Create your views here.
 class OperatorFilterListView(ListAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.filter(groups__name="Operator")
     serializer_class = OperatorFilterSerializer
 class UserInfoListView(ListAPIView):
     permission_classes = [IsAuthenticated]
