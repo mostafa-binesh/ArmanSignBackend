@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'clients',
     'accounts',
     'parts',
+    'projects',
     'orders',
     'reports',
     'stages', # DEPRECATED
