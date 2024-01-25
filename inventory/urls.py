@@ -20,6 +20,7 @@ from django.urls import include, path
 from rest_framework import routers
 from clients.views import ClientViewSet
 from accounts.views import OperatorFilterListView, UserGroupsoListView, UserInfoListView, UserViewSet
+from projects.views import ProjectViewSet
 from stages.views import StageViewSet
 from orders.views import OrderViewSet
 from reports.views import ReportExportView, ReportViewSet
@@ -53,6 +54,7 @@ router.register(r'orders', OrderViewSet, basename='client')
 router.register(r'reports', ReportViewSet, basename='report')
 router.register(r'machines', MachineViewSet, basename='machine')
 router.register(r'users', UserViewSet, basename='users')
+router.register(r'projects', ProjectViewSet, basename='project')
 
 
 urlpatterns = [
