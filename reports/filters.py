@@ -13,6 +13,7 @@ class ReportFilter(django_filters.FilterSet):
     machine__id = django_filters.CharFilter(field_name="machine", lookup_expr='exact', label="machine_id")
     # machine = django_filters.ModelChoiceFilter(queryset=Machine.objects.all())
     status = django_filters.ChoiceFilter(choices=Report.STATUS_CHOICES)
+    category = django_filters.ChoiceFilter(choices=Report.CATEGORY_CHOICES)
     order_number = django_filters.CharFilter(field_name="order__order_number", lookup_expr='icontains', label="Order Number")  # Assuming the related_name is 'order'
     operator_id = django_filters.NumberFilter(field_name="operator", lookup_expr='exact', label="Operator ID")  # fill 'exact' if you want to filter by an exact match
 
@@ -21,4 +22,4 @@ class ReportFilter(django_filters.FilterSet):
 
     class Meta:
         model = Report
-        fields = ['started_at', 'ended_at']
+        fields = ['started_at', 'ended_at', 'machine__id', 'status', 'order_number', 'operator_id', 'category']

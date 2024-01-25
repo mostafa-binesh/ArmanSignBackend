@@ -1,6 +1,7 @@
 import datetime
 from email.policy import default
 from random import choice
+from sre_constants import CATEGORY
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
@@ -16,7 +17,12 @@ class Report(models.Model):
         ('p', 'Pending'),
         ('a', 'Approved'),
         ('r', 'Rejected'),
-    ]    
+    ]
+    CATEGORY_CHOICES = [
+        ('a', 'A'),
+        ('b', 'B'),
+        ('c', 'C'),
+    ]
     operator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Operator")) 
     order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'))
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
@@ -28,6 +34,7 @@ class Report(models.Model):
     defective_parts_count = models.IntegerField(verbose_name=_("Defective Parts Count"))
     # stop_time = models.In tegerField(verbose_name=_("Stop Time"))
     status = models.CharField(verbose_name=_("Status"), max_length=20,  choices=STATUS_CHOICES, default='p')
+    category = models.CharField(verbose_name=_("Category"), max_length=20,  choices=CATEGORY_CHOICES, default='a')
     # i didn't like this style of stop controller code and time, but this project doesn't need more than this
     # and more modular and flexible design is more time consuming
     stop_controller_1_code = models.CharField(max_length=10, blank=True, null=True)
