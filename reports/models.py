@@ -5,6 +5,7 @@ from sre_constants import CATEGORY
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
+from projects.models import Project
 from orders.models import Order
 from stages.models import Stage
 from clients.models import Client
@@ -25,6 +26,7 @@ class Report(models.Model):
     ]
     operator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Operator")) 
     order = models.ForeignKey(Order,on_delete=models.CASCADE, verbose_name=_('Order'))
+    project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name=_('Project'), default=1)
     machine = models.ForeignKey(Machine,on_delete=models.CASCADE, verbose_name=_('Machine'))
     date = models.DateField(verbose_name=_("Date"))
     started_at = models.TimeField(verbose_name=_("Started At"))

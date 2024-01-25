@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 from clients.serializers import ClientSerializer
+from projects.serializers import ProjectSerializer
 from orders.serializers import OrderReadSerializer
 from machines.serializers import MachineSerializer
 from clients.serializers import ClientSerializer
@@ -16,6 +17,7 @@ class ReportReadSerializer(serializers.ModelSerializer):
     # client = ClientSerializer()
     machine = MachineSerializer()
     operator = OperatorSerializer()
+    project = ProjectSerializer()
     class Meta:
         model = Report
         fields = '__all__'
