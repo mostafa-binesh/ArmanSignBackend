@@ -1,6 +1,7 @@
 # Create your models here.
 from django.db import models
-from datetime import datetime    
+from datetime import datetime
+from projects.models import Project    
 from parts.models import Part
 from clients.models import Client
 from django.utils.translation import gettext_lazy as _
@@ -8,12 +9,21 @@ from django.utils import timezone
 import random
 # Create your models here.
 class Order(models.Model):
+    CATEGORY_CHOICES = [
+        ('a', 'A'),
+        ('b', 'B'),
+        ('c', 'C'),
+    ]
     part = models.ForeignKey(Part, on_delete=models.CASCADE, verbose_name=_("Part"))
     client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name=_("Client"))
     count = models.IntegerField(default=0, verbose_name=_("Count"))
     started_at = models.DateField(default=timezone.now, verbose_name=_("Started At"))
     ended_at = models.DateField(default=timezone.now, verbose_name=_("Ended At"), null=True)
     order_number = models.CharField(max_length=200, verbose_name=_("Order Number"))
+
+    project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name=_('Project'), default=1)
+    category = models.CharField(verbose_name=_("Category"), max_length=20,  choices=CATEGORY_CHOICES, default='a')
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
