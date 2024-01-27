@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
+from projects.serializers import ProjectSerializer
 from .models import Order
 from parts.serializers import PartSerializer
 from clients.serializers import ClientSerializer
@@ -8,6 +9,7 @@ from clients.serializers import ClientSerializer
 class OrderReadSerializer(serializers.ModelSerializer):
     part = PartSerializer()
     client = ClientSerializer()
+    project = ProjectSerializer()
     class Meta:
         model = Order
         fields = '__all__'

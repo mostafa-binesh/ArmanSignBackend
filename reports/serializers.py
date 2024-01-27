@@ -17,7 +17,7 @@ class ReportReadSerializer(serializers.ModelSerializer):
     # client = ClientSerializer()
     machine = MachineSerializer()
     operator = OperatorSerializer()
-    project = ProjectSerializer()
+    # project = ProjectSerializer()
     class Meta:
         model = Report
         fields = '__all__'

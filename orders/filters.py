@@ -5,7 +5,7 @@ from django_filters.rest_framework import DateFilter
 from machines.models import Machine
 from .models import Order
 
-class ReportFilter(django_filters.FilterSet):
+class OrderFilter(django_filters.FilterSet):
     # todo
     # started_at = DateFilter(field_name="created_at", lookup_expr=('gt'))
     # ended_at = DateFilter(field_name="created_at", lookup_expr=('lt'))
