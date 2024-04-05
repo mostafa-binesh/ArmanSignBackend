@@ -9,8 +9,10 @@ from orders.models import Order
 from stages.models import Stage
 from clients.models import Client
 from machines.models import Machine
+from parts.models import Part
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.db.models import JSONField
 # Create your models here.
 class Report(models.Model):
     STATUS_CHOICES = [
@@ -44,6 +46,10 @@ class Report(models.Model):
     stop_controller_4_time = models.IntegerField(blank=True, null=True)
 
     sort_order = models.PositiveIntegerField(default=1, blank=False, null=False,verbose_name=_("Sort Order"))
+
+    parts = models.ManyToManyField(Part, verbose_name=_("Parts"))
+    parts_code = JSONField(verbose_name=_("Parts Code"), default=list)
+
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
