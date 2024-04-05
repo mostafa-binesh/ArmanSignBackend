@@ -24,6 +24,8 @@ class Order(models.Model):
     project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name=_('Project'), default=1)
     category = models.CharField(verbose_name=_("Category"), max_length=20,  choices=CATEGORY_CHOICES, default='a')
 
+    sort_order = models.PositiveIntegerField(default=1, blank=False, null=False,verbose_name=_("Sort Order"))
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

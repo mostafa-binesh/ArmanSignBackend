@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from .filters import OrderFilter
 class OrderViewSet(viewsets.ModelViewSet):
-    queryset = Order.objects.all()
+    queryset = Order.objects.all().order_by('sort_order')  # Explicitly ordering by 'sort_order'
     filter_backends = [DjangoFilterBackend]
     filterset_class = OrderFilter
     # permission_classes = [IsAdminUser]

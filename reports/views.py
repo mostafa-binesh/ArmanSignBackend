@@ -15,7 +15,7 @@ import csv
 from django.http import HttpResponse
 
 class ReportViewSet(viewsets.ModelViewSet):
-    queryset = Report.objects.all()
+    queryset = Report.objects.all().order_by('sort_order')  # Explicitly ordering by 'sort_order'
         
     filter_backends = [DjangoFilterBackend]
     filterset_class = ReportFilter
@@ -28,7 +28,7 @@ class ReportViewSet(viewsets.ModelViewSet):
     
 class ReportExportView(ListAPIView):
     serializer_class = ReportReadSerializer
-    queryset = Report.objects.all()
+    queryset = Report.objects.all().order_by('sort_order')  # Explicitly ordering by 'sort_order'
     filter_backends = [DjangoFilterBackend]
     filterset_class = ReportFilter
     # filterset_fields = ['status', 'operator', 'machine']  # Add any other fields you want to filter by

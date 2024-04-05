@@ -7,6 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class ClientViewSet(viewsets.ModelViewSet):
-    queryset = Client.objects.all()
+    queryset = Client.objects.all().order_by('sort_order')  # Explicitly ordering by 'sort_order'
     serializer_class = ClientSerializer
     # permission_classes = [IsAuthenticated]

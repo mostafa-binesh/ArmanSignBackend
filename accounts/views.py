@@ -16,6 +16,15 @@ from accounts.serializers import OperatorFilterSerializer, UserSerializer
 class OperatorFilterListView(ListAPIView):
     queryset = User.objects.filter(groups__name="Operator")
     serializer_class = OperatorFilterSerializer
+
+class OperatorAndSupervisorFilterListView(ListAPIView):
+    # Define the list of group names you're interested in
+    group_names = ["Operator", "Supervisor"]
+
+    # Queryset to find users belonging to either "Operator" or "Supervisor" groups
+    queryset = User.objects.filter(groups__name__in = group_names).distinct()
+    queryset = User.objects.filter(groups__name="Operator")
+    serializer_class = OperatorFilterSerializer
 class UserInfoListView(ListAPIView):
     permission_classes = [IsAuthenticated]
 

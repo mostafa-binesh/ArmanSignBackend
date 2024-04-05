@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
 from clients.views import ClientViewSet
-from accounts.views import OperatorFilterListView, UserGroupsoListView, UserInfoListView, UserViewSet
+from accounts.views import OperatorFilterListView, UserGroupsoListView, UserInfoListView, UserViewSet, OperatorAndSupervisorFilterListView
 from projects.views import ProjectViewSet
 from stages.views import StageViewSet
 from orders.views import OrderViewSet
@@ -64,6 +64,7 @@ urlpatterns = [
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path('admin/', admin.site.urls),
     path('api/operators/filterData', OperatorFilterListView.as_view(), name='operator-filter-list'),
+    path('api/operators-and-supervisors', OperatorAndSupervisorFilterListView.as_view(), name='operator-filter-list'),
     path('api/reports/export', ReportExportView.as_view(), name='export-reports'), 
 
     # jwt token routes
