@@ -14,6 +14,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django.db.models import JSONField
 # Create your models here.
+
 class Report(models.Model):
     STATUS_CHOICES = [
         ('p', 'Pending'),
@@ -48,7 +49,9 @@ class Report(models.Model):
     sort_order = models.PositiveIntegerField(default=1, blank=False, null=False,verbose_name=_("Sort Order"))
 
     parts = models.ManyToManyField(Part, verbose_name=_("Parts"))
-    parts_code = JSONField(verbose_name=_("Parts Code"), default=list)
+    # parts_code = JSONField(verbose_name=_("Parts Code"), default=list)
+    # report_part_codes = models.ManyToManyField("Report_Parts_Code", verbose_name=_('Report Part Codes'), blank=True)
+
 
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -57,6 +60,18 @@ class Report(models.Model):
     class Meta:
         verbose_name = _("Report")
         verbose_name_plural = _("Reports")
+        
+    def __str__(self) -> str:
+        return str(self.id)
+    
+class Report_Parts_Code(models.Model):
+    report = models.ForeignKey(Report,on_delete=models.CASCADE, verbose_name=_('Report'))
+    number = models.IntegerField(verbose_name=_('Number'), default= 1)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    class Meta:
+        verbose_name = _("Report Part Code")
+        verbose_name_plural = _("Report Part Code")
         
     def __str__(self) -> str:
         return str(self.id)
