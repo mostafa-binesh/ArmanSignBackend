@@ -48,7 +48,7 @@ class Report(models.Model):
 
     sort_order = models.PositiveIntegerField(default=1, blank=False, null=False,verbose_name=_("Sort Order"))
 
-    parts = models.ForeignKey(Part, on_delete=models.CASCADE, verbose_name=_("Parts"))
+    part = models.ForeignKey(Part, on_delete=models.CASCADE, verbose_name=_("Parts"))
     # parts_code = JSONField(verbose_name=_("Parts Code"), default=list)
     # report_part_codes = models.ManyToManyField("Report_Parts_Code", verbose_name=_('Report Part Codes'), blank=True)
 
