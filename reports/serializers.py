@@ -11,6 +11,7 @@ from machines.serializers import MachineSerializer
 from accounts.serializers import OperatorSerializer
 from parts.serializers import PartSerializer
 from .models import Report, Report_Parts_Code
+from parts.models import Part
 from django.utils.translation import gettext_lazy as _
 class ReportPartCodesSerializer(serializers.ModelSerializer):
     # started_at = serializers.TimeField(format='%H:%M:%S')
@@ -19,7 +20,7 @@ class ReportPartCodesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Report_Parts_Code
         fields = ['number']
-        read_only_fields = ('created_at', 'updated_at',)
+        # read_only_fields = ('created_at', 'updated_at',)
         
 class ReportReadSerializer(serializers.ModelSerializer):
     order = OrderReadSerializer()
@@ -27,7 +28,7 @@ class ReportReadSerializer(serializers.ModelSerializer):
     machine = MachineSerializer()
     operator = OperatorSerializer()
     # project = ProjectSerializer()
-    parts = PartSerializer(many=True)
+    parts = PartSerializer()
     # report_part_codes = ReportPartCodesSerializer(many=True)
     report_part_codes = serializers.SerializerMethodField()  # Serializer method field to handle related Report_Parts_Code
     class Meta:
@@ -40,35 +41,30 @@ class ReportReadSerializer(serializers.ModelSerializer):
 class ReportWriteSerializer(serializers.ModelSerializer):
     started_at = serializers.TimeField(format='%H:%M:%S')
     ended_at = serializers.TimeField(format='%H:%M:%S')
-    # report_part_codes = ReportPartCodesSerializer(many=True)
+    # parts = PartSerializer(many=True)
+    report_part_codes = ReportPartCodesSerializer(many=True)
     # report_part_codes = serializers.SerializerMethodField()  # Serializer method field to handle related Report_Parts_Code
     # report_part_codes = serializers.PrimaryKeyRelatedField(queryset=Report_Parts_Code.objects.all(), many=True)
 
 
-    # def create(self, validated_data):
-        # part_codes_data = validated_data.pop('report_part_codes', [])
-        # report_parts = validated_data.pop('parts', [])
-        # report = Report.objects.create(**validated_data)
-        # report.report_part_codes.set(part_codes_data)
-        # report.parts.set(report_parts)
-        # for part_code_data in part_codes_data:
-        #     Report_Parts_Code.objects.create(report=report, **part_code_data)
-        # return report
-    # def create(self, validated_data):
-    #     report_part_codes_data = validated_data.pop('report_part_codes', [])
-    #     # report_part_codes_data = validated_data.pop('parts', [])
-    #     report = Report.objects.create(**validated_data)
 
-    #     # Handle many-to-many relationship
-    #     report_part_codes = []
-    #     for part_code_id in report_part_codes_data:
-    #         part_code = Report_Parts_Code.objects.create(report=report, number=part_code_id)
-    #         report_part_codes.append(part_code)
+    def create(self, validated_data):
+            report_codes = validated_data.pop('report_part_codes', [])
+            report_parts = validated_data.pop('parts', [])
 
-    #     return report
-    def get_report_part_codes(self, obj):
-        report_part_codes = Report_Parts_Code.objects.filter(report=obj)
-        return ReportPartCodesSerializer(report_part_codes, many=True).data
+            # similar to Parent.objects.create(**validated_data)
+            parent = Report.objects.create(**validated_data)
+
+            for item_data in report_codes:
+                Report_Parts_Code.objects.create(report=parent, **item_data)
+            parent.parts.set(report_parts)
+            # for item_data in report_parts:
+            #     Part.objects.create(report=parent, *item_data)
+            # return parent
+            return parent
+    # def get_report_part_codes(self, obj):
+    #     report_part_codes = Report_Parts_Code.objects.filter(report=obj)
+    #     return ReportPartCodesSerializer(report_part_codes, many=True).data
 
     class Meta:
         model = Report
