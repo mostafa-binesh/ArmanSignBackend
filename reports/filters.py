@@ -18,8 +18,23 @@ class ReportFilter(django_filters.FilterSet):
     order_category = django_filters.NumberFilter(field_name="category", lookup_expr='exact', label="Category")  # fill 'exact' if you want to filter by an exact match
 
 
+    # New filter for Part ID
+    part_id = django_filters.NumberFilter(field_name="part", lookup_expr='exact', label="Part ID")
 
+    # New filter for Part Codes
+    part_codes = django_filters.CharFilter(method='filter_part_codes', label="Part Codes")
 
     class Meta:
         model = Report
-        fields = ['started_at', 'ended_at', 'machine__id', 'status', 'order_number', 'operator_id']
+        fields = [
+            'started_at', 'ended_at', 'machine__id', 'status',
+            'order_number', 'operator_id', 'part_id'
+        ]
+
+    def filter_part_codes(self, queryset, name, value):
+        # Split the comma-separated string into a list of integers
+        part_codes_ids = [int(code.strip()) for code in value.split(',')]
+        # Filter reports that have any of these part codes
+        return queryset.filter(
+            report_parts_code__number__in=part_codes_ids
+        ).distinct()
