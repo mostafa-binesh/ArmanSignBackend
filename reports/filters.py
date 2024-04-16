@@ -4,7 +4,7 @@ from django_filters.rest_framework import DateFilter
 
 from machines.models import Machine
 from .models import Report
-
+from orders.models import Order 
 class ReportFilter(django_filters.FilterSet):
     # todo
     started_at = DateFilter(field_name="created_at", lookup_expr=('gt'))
@@ -15,7 +15,7 @@ class ReportFilter(django_filters.FilterSet):
     status = django_filters.ChoiceFilter(choices=Report.STATUS_CHOICES)
     order_number = django_filters.CharFilter(field_name="order__order_number", lookup_expr='icontains', label="Order Number")  # Assuming the related_name is 'order'
     operator_id = django_filters.NumberFilter(field_name="operator", lookup_expr='exact', label="Operator ID")  # fill 'exact' if you want to filter by an exact match
-    order_category = django_filters.NumberFilter(field_name="category", lookup_expr='exact', label="Category")  # fill 'exact' if you want to filter by an exact match
+    order_category = django_filters.ChoiceFilter(choices=Order.CATEGORY_CHOICES, field_name="order__category", lookup_expr='exact', label="Category")  # fill 'exact' if you want to filter by an exact match
 
 
     # New filter for Part ID
