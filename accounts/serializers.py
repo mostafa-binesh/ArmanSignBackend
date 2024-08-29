@@ -4,7 +4,6 @@ from django.conf import settings
 from django.contrib.auth.models import Group
 from rest_framework import serializers
 from .models import User
-from parts import models
 
 class OperatorSerializer(serializers.ModelSerializer):
     class Meta:

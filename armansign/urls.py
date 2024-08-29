@@ -18,15 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
-from clients.views import ClientViewSet
 from accounts.views import OperatorFilterListView, UserGroupsoListView, UserInfoListView, UserViewSet, OperatorAndSupervisorFilterListView
-from projects.views import ProjectViewSet
-from stages.views import StageViewSet
-from orders.views import OrderViewSet
-from reports.views import ReportExportView, ReportViewSet
-from stages.views import StageViewSet 
-from machines.views import MachineViewSet 
-from parts import views as partsViews
 from rest_framework.routers import DefaultRouter
 from django.urls import re_path
 from rest_framework import permissions
@@ -48,13 +40,13 @@ schema_view = get_schema_view(
 )    
 
 router = DefaultRouter()
-router.register(r'parts', partsViews.PartViewSet, basename='part')
-router.register(r'clients', ClientViewSet, basename='client')
-router.register(r'orders', OrderViewSet, basename='client')
-router.register(r'reports', ReportViewSet, basename='report')
-router.register(r'machines', MachineViewSet, basename='machine')
-router.register(r'users', UserViewSet, basename='users')
-router.register(r'projects', ProjectViewSet, basename='project')
+# router.register(r'parts', partsViews.PartViewSet, basename='part')
+# router.register(r'clients', ClientViewSet, basename='client')
+# router.register(r'orders', OrderViewSet, basename='client')
+# router.register(r'reports', ReportViewSet, basename='report')
+# router.register(r'machines', MachineViewSet, basename='machine')
+# router.register(r'users', UserViewSet, basename='users')
+# router.register(r'projects', ProjectViewSet, basename='project')
 
 
 urlpatterns = [
@@ -65,7 +57,7 @@ urlpatterns = [
    path('admin/', admin.site.urls),
     path('api/operators/filterData', OperatorFilterListView.as_view(), name='operator-filter-list'),
     path('api/operators-and-supervisors', OperatorAndSupervisorFilterListView.as_view(), name='operator-filter-list'),
-    path('api/reports/export', ReportExportView.as_view(), name='export-reports'), 
+    # path('api/reports/export', ReportExportView.as_view(), name='export-reports'),
 
     # jwt token routes
    path('api/signin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
