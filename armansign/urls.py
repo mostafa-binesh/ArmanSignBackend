@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls import include, path
 from rest_framework import routers
 from accounts.views import OperatorFilterListView, UserGroupsoListView, UserInfoListView, UserViewSet, \
-    OperatorAndSupervisorFilterListView
+    OperatorAndSupervisorFilterListView, SignupView
 from rest_framework.routers import DefaultRouter
 from django.urls import re_path
 from rest_framework import permissions
@@ -46,7 +46,7 @@ router = DefaultRouter()
 # router.register(r'orders', OrderViewSet, basename='client')
 # router.register(r'reports', ReportViewSet, basename='report')
 # router.register(r'machines', MachineViewSet, basename='machine')
-# router.register(r'users', UserViewSet, basename='users')
+router.register(r'users', UserViewSet, basename='users')
 # router.register(r'projects', ProjectViewSet, basename='project')
 
 
@@ -64,7 +64,7 @@ urlpatterns = [
     path('api/signin/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/signin/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
-    path('signup/', SignupView.as_view(), name='signup'),
+    path('api/signup/', SignupView.as_view(), name='signup'),
     path('api/user-info/', UserInfoListView.as_view(), name='user_info'),
     path('api/user-groups/', UserGroupsoListView.as_view(), name='user_groups'),
 ]
